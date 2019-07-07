@@ -35,8 +35,6 @@ export class CategoriesPage {
   }
 
   itemSelected(item: string) {
-    this.navCtrl.push(QuizPage, item);
-   
-  }
+    this.navCtrl.push(QuizPage, item);}
 
 }

@@ -17,6 +17,7 @@ import { History } from '../../app/model/history/history.model';
  * Ionic pages and navigation.
  */
 
+
 @IonicPage()
 @Component({
   selector: 'page-quiz',
@@ -32,35 +33,13 @@ quizAndAnswers: any [];
 currentQuestion: any = {};
 questionIndex: number;
 score: any = 0;
-
-options: any[];
-
+options : any = {"Politics":Politics, "Science":Sciences, "Animals": Animals, "History": History, "Geography": Geography};
 
 
+name: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private pointsProvider: PointsProvider) {
-    this.item = this.navParams.data;
-    
-    if(this.item == 'Politics') {
-      
-            this.quizAndAnswers = Politics;
-    }else if(this.item == 'History') {
-      this.quizAndAnswers = History;
-    }else if(this.item == 'Animals') {
-      this.quizAndAnswers = Animals;
-    }
-    else if(this.item == 'Science') { 
-      this.quizAndAnswers = Sciences;
-    }
-   
-    else if(this.item == 'Geography') {
-      this.quizAndAnswers = Geography;
-    }
-   
-    
-    
-    
-    
+    this.quizAndAnswers = this.options[this.navParams.data]; 
   }
  
 
