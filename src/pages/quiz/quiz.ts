@@ -39,7 +39,12 @@ options : any = {"Politics":Politics, "Science":Sciences, "Animals": Animals, "H
 name: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private pointsProvider: PointsProvider) {
-    this.quizAndAnswers = this.options[this.navParams.data]; 
+    this.start();
+  }
+  
+  start(){
+    this.item = this.navParams.data;
+    this.quizAndAnswers = this.options[this.item]; 
   }
  
 
@@ -76,7 +81,7 @@ name: string;
 
   restartSlide(){
     this.score = this.pointsProvider.ScoreRestart();
-    
+    this.start();
     this.slides.slideTo(1, 1000);
   
   }
